@@ -19,7 +19,6 @@ allowed_origins = [
      "http://localhost:3000",     
 ]
 CORS(app, resources={r"/*": {"origins": allowed_origins}})
-CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
 app.register_blueprint(user_bp, url_prefix='/api')
 app.register_blueprint(minimal_image_bp, url_prefix='/api/image')
