@@ -14,8 +14,12 @@ app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'sta
 app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
-# Enable CORS for all routes
-CORS(app)
+allowed_origins = [
+    "https://randy-frontend.onrender.com", 
+     "http://localhost:3000",     
+]
+CORS(app, resources={r"/*": {"origins": allowed_origins}})
+CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
 app.register_blueprint(user_bp, url_prefix='/api')
 app.register_blueprint(minimal_image_bp, url_prefix='/api/image')
