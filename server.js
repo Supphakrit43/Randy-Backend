@@ -27,6 +27,7 @@ app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`))
 
 // ส่วนที่ 1: เพิ่มด้านบนของไฟล์เพื่อ import เข้ามา
 const uploadRoutes = require('./routes/upload');
+app.use('/api', uploadRoutes);
 
 // ... โค้ดอื่นๆ ของคุณ ...
 
