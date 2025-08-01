@@ -25,7 +25,8 @@ const upload = multer({
 });
 
 // 3. สร้าง Route สำหรับการอัปโหลด
-router.post('/upload', upload.single('image'), (req, res) => {
+const uploadRoutes = require('./routes/upload');
+app.use('/api', uploadRoutes);
     if (!req.file) {
         return res.status(400).json({ error: 'No file uploaded.' });
     }
